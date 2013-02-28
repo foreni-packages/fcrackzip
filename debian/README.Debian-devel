@@ -1,0 +1,9 @@
+frackzip Debian source package maintenance
+------------------------------------------
+
+After unpacking the Debian source package,
+test functionality of the program with:
+
+  make -C debian/test all
+
+ -- Jari Aalto <jari.aalto@cante.net>, Tue,  5 Jan 2010 20:51:05 +0200

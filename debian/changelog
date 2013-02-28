@@ -1,0 +1,123 @@
+fcrackzip (1.0-5) unstable; urgency=low
+
+  [ Jari Aalto ]
+  * debian/control
+    - (Standards-Version): Update to 3.9.4.
+  * debian/copyright
+    - Update URL. Update year.
+  * debian/docs
+    - Delete extra newline.
+  * debian/patches
+    - (20): New. Update project homepage URL in README (Closes: #694529).
+
+  [ tony mancill ]
+  * debian/watch
+    - Include updated d/watch file provided by Bart Martens.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Thu, 28 Feb 2013 10:15:28 +0200
+
+fcrackzip (1.0-4) unstable; urgency=low
+
+  * debian/control
+    - (Build-Depends): Rm dpkg-dev; not needed with debhelper 9.
+    - (Standards-Version): Update to 3.9.3.1.
+  * debian/copyright
+    - Update to format 1.0.
+  * debian/debian-vars.mk
+    - Delete; no longer used.
+  * debian/docs
+    - Delete *.html; copy of manual page.
+  * debian/rules
+    - Remove unneeded targets.
+    - Enable all hardening flags.
+    - Use DEB_*_MAINT_* variables.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 23 Mar 2012 05:09:32 -0400
+
+fcrackzip (1.0-3) unstable; urgency=low
+
+  * debian/compat
+    - Update to 9
+  * debian/control
+    - (Build-Depends): Update to debhelper 9, dpkg-dev 1.16.1.
+    - (Standards-Version): Update to 3.9.2.
+  * debian/copyright
+    - Update to DEP5
+  * debian/rules
+    - Remove unnecessary rules.
+    - Use hardened CFLAGS.
+      http://wiki.debian.org/ReleaseGoals/SecurityHardeningBuildFlags
+
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 11 Feb 2012 04:57:06 -0500
+
+fcrackzip (1.0-2) unstable; urgency=low
+
+  * debian/compat
+    - Update to 8.
+  * debian/control
+    - (Build-Depends): Update to debhelper 8.
+    - (Standards-Version): Update to 3.9.1.
+  * debian/patches
+    - (20): Refresh. Add also fix for unescaped passwords that cause "sh:
+      Syntax error: Unterminated quoted string". Patch thanks to Richard
+      Corner from Ubuntu (see LP#350640).
+
+ -- Jari Aalto <jari.aalto@cante.net>  Mon, 25 Oct 2010 17:11:27 +0300
+
+fcrackzip (1.0-1) unstable; urgency=low
+
+  * New maintainer (ITA; Closes: #555125)
+    - New version (Closes: #531657).
+    - Pw is not initialized and read from stdin (Closes: #528219).
+    - Segmentation Fault when init-password string is
+      longer than MAX_PW (40)(Closes: #500750).
+    - Move to format: 3.0 (quilt).
+  * debian/clean
+    - New file.
+  * debian/compat
+    - Update to 7.
+  * debian/control
+    - (Build-Depends): update to debhelper 7, remove old version
+      from autotools-dev.
+    - (Homepage): New field.
+    - (Standards-Version): update to 3.8.3.
+  * debian/copyright
+    - Update layout.
+  * debian/debian-{autotools,compile,vars}.mk
+    - New files.
+  * debian/fcrackzipinfo.1
+    - Delete, convert to POD format.
+  * debian/fcrackzipinfo.1.pod
+    - New file.
+  * debian/fcrackzip.{examples,manpages}
+    - Move content from rules for dh(1).
+  * debian/patches
+    - (10): New; fix hyphens in manual page.
+    - (20): New; handle special files (Closes: #430387).
+  * debian/pod2man.mk
+    - New file.
+  * debian/rules
+    - Update to dh(1).
+  * debian/watch
+    - New file.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Tue, 05 Jan 2010 20:28:03 +0200
+
+fcrackzip (0.3-2) unstable; urgency=low
+
+  * Added project homepage in long description and fixed a typo.
+  * Added patch from Andreas Jochens to build fcrackzip on AMD64.
+    Thanks Andreas! (Closes: #285915)
+  * Correctly escapes special chars when calling unzip to test
+    passwords. (Closes: #283997)
+  * Let return value of "1" mean good password. (Closes: #258665)
+  * Useless debhelper commands removed from debian/rules.
+  * Sponsored by Emanuele Rocca <ema@debian.org>.
+
+ -- Francesco Donadon <francesco.donadon@katamail.com>  Sat, 18 Dec 2004 20:46:52 +0100
+
+fcrackzip (0.3-1) unstable; urgency=low
+
+  * Initial Release (Closes: #239653).
+
+ -- Francesco Donadon <francesco.donadon@katamail.com>  Sat, 10 Apr 2004 16:06:44 +0200

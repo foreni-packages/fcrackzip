@@ -1,0 +1,165 @@
+From 1b51acd93204d9946bfae7aae2c6a81d1db807c3 Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Tue, 29 Dec 2009 16:00:14 +0200
+Subject: [PATCH] fcrackzip.1: fix hyphens
+
+Signed-off-by: Jari Aalto <jari.aalto@cante.net>
+---
+ fcrackzip.1 |   56 ++++++++++++++++++++++++++++----------------------------
+ 1 files changed, 28 insertions(+), 28 deletions(-)
+
+diff --git a/fcrackzip.1 b/fcrackzip.1
+index 8566817..996cce5 100644
+--- a/fcrackzip.1
++++ b/fcrackzip.1
+@@ -4,9 +4,9 @@
+ \- a Free/Fast Zip Password Cracker
+ .SH SYNOPSIS
+ .B fcrackzip
+-[-bDBchVvplum2] [--brute-force] [--dictionary] [--benchmark] [--charset characterset]
+-[--help] [--validate] [--verbose] [--init-password string/path] [--length min-max]
+-[--use-unzip] [--method name] [--modulo r/m] file...
++[\-bDBchVvplum2] [\-\-brute\-force] [\-\-dictionary] [\-\-benchmark] [\-\-charset characterset]
++[\-\-help] [\-\-validate] [\-\-verbose] [\-\-init\-password string/path] [\-\-length min\-max]
++[\-\-use\-unzip] [\-\-method name] [\-\-modulo r/m] file...
+ .SH DESCRIPTION
+ .I fcrackzip
+ searches each zipfile given for encrypted files and tries to guess the
+@@ -14,22 +14,22 @@ password. All files must be encrypted with the same password, the more
+ files you provide, the better.
+ .SS OPTIONS
+ .TP
+-.B \-h, \--help
++.B \-h, \-\-help
+ Prints the version number and (hopefully) some helpful insights.
+ .TP
+-.B \-v, \--verbose
+-Each -v makes the program more verbose.
++.B \-v, \-\-verbose
++Each \-v makes the program more verbose.
+ .TP
+-.B \-b, \--brute-force
++.B \-b, \-\-brute-force
+ Select brute force mode. This tries all possible combinations
+ of the letters you specify.
+ .TP
+-.B \-D, \--dictionary
++.B \-D, \-\-dictionary
+ Select dictionary mode. In this mode, fcrackzip will read passwords
+ from a file, which must contain one password per line and should be
+ alphabetically sorted (e.g. using \fBsort(1)\fR).
+ .TP
+-.B \-c, \--charset characterset-specification
++.B \-c, \-\-charset characterset-specification
+ Select the characters to use in brute-force cracking. Must be one
+ of
+ 
+@@ -47,40 +47,40 @@ of
+ For example, a1:$% selects lowercase characters, digits and the dollar and
+ percent signs.
+ .TP
+-.B \-p, \--init-password string
++.B \-p, \-\-init-password string
+ Set initial (starting) password for brute-force searching to \fIstring\fR,
+ or use the file with the name \fIstring\fR to supply passwords for dictionary
+ searching.
+ .TP
+-.B \-l, \--length min[-max]
++.B \-l, \-\-length min[-max]
+ Use an initial password of length min, and check all passwords
+ upto passwords of length max (including). You can omit the max
+ parameter.
+ .TP
+-.B \-u, \--use-unzip
++.B \-u, \-\-use-unzip
+ Try to decompress the first file by calling unzip with the guessed
+ password. This weeds out false positives when not enough files have
+ been given.
+ .TP
+-.B \-m, \--method name
++.B \-m, \-\-method name
+ Use method number "name" instead of the default cracking method. The
+ switch \fB--help\fR will print a list of available methods. Use
+ \fB--benchmark\fR to see which method does perform best on your
+ machine. The \fBname\fR can also be the number of the method to use.
+ .TP
+-.B \-2, \--modulo r/m
++.B \-2, \-\-modulo r/m
+ Calculate only r/m of the password. Not yet supported.
+ .TP
+-.B \-B, \--benchmark
++.B \-B, \-\-benchmark
+ Make a small benchmark, the output is nearly meaningless.
+ .TP
+-.B -V, \--validate
++.B -V, \-\-validate
+ Make some basic checks wether the cracker works.
+ .SH ZIP PASSWORD BASICS
+-Have you ever mis-typed a password for unzip? Unzip reacted pretty fast with
++Have you ever mis\-typed a password for unzip? Unzip reacted pretty fast with
+ \'incorrect password\', \fIwithout\fR decrypting the whole file. While the
+ encryption algorithm used by zip is relatively secure, PK made cracking easy
+-by providing hooks for very fast password-checking, directly in the zip
++by providing hooks for very fast password\-checking, directly in the zip
+ file. Understanding these is crucial to zip password cracking:
+ 
+ For each password that is tried, the first twelve bytes of the file are
+@@ -104,37 +104,37 @@ By default, brute force starts at the given starting password, and
+ successively tries all combinations until they are exhausted, printing all
+ passwords that it detects, together with a rough correctness indicator.
+ 
+-The starting password given by the \fI-p\fR switch determines the length.
++The starting password given by the \fI\-p\fR switch determines the length.
+ fcrackzip will not currently increase the password length automatically, unless
+-the \fI-l\fR switch is used.
++the \fI\-l\fR switch is used.
+ .SH DICTIONARY MODE
+ This mode is similar to brute force mode, but instead of generating passwords
+ using a given set of characters and a length, the passwords will be read from
+-a file that you have to specify using the \fI-p\fR switch.
++a file that you have to specify using the \fI\-p\fR switch.
+ .SH CP MASK
+ A CP mask is a method to obscure images or parts of images using a
+ password.  These obscured images can be restored even when saved as JPEG
+ files. In most of these files the password is actually hidden and can
+ be decoded easily (using one of the many available viewer and masking
+ programs, e.g. xv). If you convert the image the password, however, is
+-lost. The \fBcpmask\fR crack method can be used to brute-force these
++lost. The \fBcpmask\fR crack method can be used to brute\-force these
+ images. Instead of a zip file you supply the obscured part (and nothing
+ else) of the image in the \fBPPM\fR-Image Format (\fBxv\fR and other
+ viewers can easily do this).
+ 
+ The \fBcpmask\fR method can only cope with password composed of uppercase
+-letters, so be sure to supply the \fB--charset A\fR or equivalent option,
++letters, so be sure to supply the \fB\-\-charset A\fR or equivalent option,
+ together with a suitable initialization password.
+ .SH EXAMPLES
+ .TP
+-.B fcrackzip -c a -p aaaaaa sample.zip
++.B fcrackzip \-c a \-p aaaaaa sample.zip
+ checks the encrypted files in sample.zip for all lowercase 6 character
+ passwords (aaaaaa ... abaaba ... ghfgrg ... zzzzzz).
+ .TP
+-.B fcrackzip --method cpmask --charset A --init AAAA test.ppm
++.B fcrackzip \-\-method cpmask \-\-charset A \-\-init AAAA test.ppm
+ checks the obscured image \fBtest.ppm\fR for all four character passwords.
+--TP
+-.B fcrackzip -D -p passwords.txt sample.zip
++.TP
++.B fcrackzip \-D \-p passwords.txt sample.zip
+ check for every password listed in the file \fBpasswords.txt\fR.
+ .SH PERFORMANCE
+ \fIfzc\fR, which seems to be widely used as a fast password cracker,
+@@ -148,7 +148,7 @@ percent slower (the compiler used was \fIpgcc\fR, from
+ 
+ To remedy this a bit, I converted small parts of the encryption core to x86
+ assembler (it will still compile on non x86 machines), and now it\'s about
+-4-12 percent faster than \fIfzc\fR (again, the \fIfcrackzip\fR performance
++4\-12 percent faster than \fIfzc\fR (again, the \fIfcrackzip\fR performance
+ was measured under a multitasking os, so there are inevitably some
+ meaurement errors), so there shouldn't be a tempting reason to switch to
+ other programs.
+-- 
+1.6.5
+

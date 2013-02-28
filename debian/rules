@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+PACKAGE = fcrackzip
+BINDIR	= debian/$(PACKAGE)/usr/bin
+
+export DEB_BUILD_MAINT_OPTIONS	= hardening=+all
+export DEB_CFLAGS_MAINT_APPEND	= -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+man:
+	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE)info makeman
+
+override_dh_auto_test:
+	# Skip tests, because:
+	#    fcrackzip --benchmark
+	#    /bin/bash: fcrackzip: command not found
+
+override_dh_auto_install: man
+	dh_auto_install
+	#  As a program called zipinfo is already present in the
+	#  "unzip" package, rename to fcrackzipinfo
+	mv $(BINDIR)/zipinfo $(BINDIR)/fcrackzipinfo
+
+override_dh_installchangelogs:
+	dh_installchangelogs NEWS
+
+%:
+	dh $@
+
+.PHONY: man
+
+# End of file

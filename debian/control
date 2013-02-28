@@ -1,0 +1,19 @@
+Source: fcrackzip
+Section: utils
+Priority: optional
+Maintainer: Jari Aalto <jari.aalto@cante.net>
+Build-Depends: debhelper (>= 9), autotools-dev
+Standards-Version: 3.9.4
+Vcs-Browser: http://git.debian.org/?p=collab-maint/fcrackzip.git
+Vcs-Git: git://git.debian.org/git/collab-maint/fcrackzip.git
+Homepage: http://freshmeat.net/projects/fcrackzip
+
+Package: fcrackzip
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: unzip, wordlist
+Description: password cracker for zip archives
+ fcrackzip is a fast password cracker partly written in assembler.
+ It is able to crack password protected zip files with brute
+ force or dictionary based attacks, optionally testing with
+ unzip its results. It can also crack cpmask'ed images.

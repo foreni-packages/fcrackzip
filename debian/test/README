@@ -1,0 +1,4 @@
+# To test functionality with these simple tests
+
+set -x
+fcrackzip

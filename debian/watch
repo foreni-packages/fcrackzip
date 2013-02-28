@@ -1,0 +1,3 @@
+version=3
+http://oldhome.schmorp.de/marc/data/fcrackzip-(\d.*)\.(?:tgz|tbz2|tar\.(?:gz|bz2|xz))
+# Bart Martens <bartm@debian.org>  Sat, 24 Nov 2012 12:56:08 +0000
