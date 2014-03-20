@@ -1,3 +1,9 @@
+fcrackzip (1.0-5kali1) kali; urgency=low
+
+  * Import from Debian Testing
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 20 Mar 2014 12:08:11 -0400
+
 fcrackzip (1.0-5) unstable; urgency=low
 
   [ Jari Aalto ]
